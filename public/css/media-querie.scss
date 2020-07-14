@@ -1,0 +1,32 @@
+$breakpoints: (
+	"phone-very-small":   270px,
+	"phone-small":        320px,
+	"phone":              360px,
+	"tablet-very-small":  600px,
+	"tablet-small":       720px,
+	"tablet":             769px,
+	"tablet-landscape":   1024px,
+	"desktop-very-small": 800px,
+	"desktop-small":      1024px,
+	"desktop":            1280px,
+	"desktop-large":      1366px,
+	"desktop-very-large": 1440px,
+	"desktop-very-wide":  1600px,
+	"desktop-full-wide":  1920px
+);
+
+@mixin media-querie($device, $type) {
+	@if map-has-key($breakpoints, $device) {
+		$width: map-get($breakpoints, $device);
+
+		@if $type == max {
+			$width: $width - 1px;
+		}
+
+		@media (#{$type}-width: $width) {
+			@content;
+		}
+	} @else {
+		@warn "Não existe o breakpoint: #{$device}.";
+	}
+}

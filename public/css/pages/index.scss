@@ -1,0 +1,18 @@
+html {
+  scroll-behavior: smooth
+
+}
+
+.firstContainer {
+  display: grid;
+  grid-auto-columns: 100%;
+  grid-auto-rows: 4em 100vh 100vh 50vh;
+  grid-template-areas: 'nav' 'header' 'main' 'footer';
+}
+
+.mainNav { grid-area: nav; }
+.mainHeader { grid-area: header; background: pink; }
+.mainMain { grid-area: main; background: cyan; }
+.mainFooter { grid-area: footer; background: orange; }
+
+
